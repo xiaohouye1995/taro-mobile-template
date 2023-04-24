@@ -11,6 +11,16 @@ const config = {
   },
   sourceRoot: 'src',
   outputRoot: 'dist',
+  terser: {
+    enable: true,
+    config: {
+      // 配置项同 https://github.com/terser/terser#minify-options
+      compress: {
+        drop_console: true,
+        pure_funcs: ['console.log', 'console.warn', 'console.error'],
+      },
+    },
+  },
   plugins: [],
   defineConstants: {
   },
@@ -55,6 +65,18 @@ const config = {
   h5: {
     publicPath: '/',
     staticDirectory: 'static',
+    output: {
+      filename: 'js/[name].[hash:8].js',
+      chunkFilename: 'js/[name].[chunkhash:8].js',
+    },
+    imageUrlLoaderOption: {
+      limit: 5000,
+      name: 'static/images/[name].[hash].[ext]',
+    },
+    miniCssExtractPluginOption: {
+      filename: 'css/[name].[hash].css',
+      chunkFilename: 'css/[name].[chunkhash].css',
+    },
     router: {
       mode: 'browser' // 'hash' | 'browser'
     },
@@ -74,7 +96,7 @@ const config = {
     }
   },
   rn: {
-    appName: 'taroDemo',
+    appName: 'taroMobileTemplate',
     postcss: {
       cssModules: {
         enable: false, // 默认为 false，如需使用 css modules 功能，则设为 true
@@ -84,6 +106,7 @@ const config = {
 }
 
 module.exports = function (merge) {
+  console.log('----', process.env.NODE_ENV)
   if (process.env.NODE_ENV === 'development') {
     return merge({}, config, require('./dev'))
   }

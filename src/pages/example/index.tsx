@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import Taro, { usePullDownRefresh, useShareAppMessage } from '@tarojs/taro'
 import { View, Button } from '@tarojs/components'
 import BasePage from '@/components/BasePage'
 import Loading from '@/components/Loading'
@@ -24,7 +25,7 @@ const Example: React.FC = () => {
     't7, T7 级别--标准字 22px 123456789 abc',
     't8, T8 级别--标准字 20px 123456789 abc',
     't9, T9 级别--标准字 18px 123456789 abc',
-    't10, T10 级别--标准字 16px 123456789 abc',
+    't10, T10 级别--标准字 16px 123456789 abc'
   ]
   const colors = [
     '#333333 text-default',
@@ -54,13 +55,27 @@ const Example: React.FC = () => {
     {
       title: '标题三',
       context: '内容三'
-    },
+    }
   ]
+
+  // 分享
+  useShareAppMessage(() => {
+    return {
+      path: `/pages/example/index`
+    }
+  })
+
+  // 下拉刷新
+  usePullDownRefresh(async () => {
+    setTimeout(() => {
+      Taro.stopPullDownRefresh()
+    }, 200)
+  })
 
   useEffect(() => {
     setTimeout(() => {
       setLoading(false)
-    }, 1000);
+    }, 1000)
   }, [])
 
   const RenderCell: React.FC<IPageProps> = (props: IPageProps) => {
@@ -79,48 +94,46 @@ const Example: React.FC = () => {
       {!loading && (
         <View>
           <RenderCell title='文字'>
-            {Words.map((item) => {
+            {Words.map(item => {
               return (
-                <View key={item} className={item.split(',')[0]}>{item.split(',')[1]}</View>
+                <View key={item} className={item.split(',')[0]}>
+                  {item.split(',')[1]}
+                </View>
               )
             })}
           </RenderCell>
           <RenderCell title='颜色'>
-            {colors.map((item) => {
+            {colors.map(item => {
               return (
-                <View key={item} className={item.split(' ')[1]}>默认标准字体大小 {item}</View>
+                <View key={item} className={item.split(' ')[1]}>
+                  默认标准字体大小 {item}
+                </View>
               )
             })}
           </RenderCell>
           <RenderCell title='圆角'>
             <View className='flex flex-wrap'>
-              {rounds.map((item) => {
+              {rounds.map(item => {
                 return (
-                  <View key={item} className={`rectangular-demo mr-16 t6 mb-16 primary ${item.split(' ')[0]}`}>{item.split(' ')[1]}</View>
+                  <View
+                    key={item}
+                    className={`rectangular-demo mr-16 t6 mb-16 primary ${item.split(' ')[0]}`}
+                  >
+                    {item.split(' ')[1]}
+                  </View>
                 )
               })}
             </View>
           </RenderCell>
           <RenderCell title='按钮'>
             <View className='flex'>
-              <Button
-                className='button button-primary'
-              >
-                主按钮
-              </Button>
-              <Button
-                className='button is-plain ml-20'
-              >
-                次按钮
-              </Button>
+              <Button className='button button-primary'>主按钮</Button>
+              <Button className='button is-plain ml-20'>次按钮</Button>
             </View>
           </RenderCell>
           <RenderCell title='弹出层组件'>
             <View className='flex'>
-              <Button
-                className='button button-primary'
-                onClick={() => setIsPopupCenter(true)}
-              >
+              <Button className='button button-primary' onClick={() => setIsPopupCenter(true)}>
                 从中间弹出
               </Button>
               <Button
@@ -152,7 +165,13 @@ const Example: React.FC = () => {
           <Popup show={isPopupCenter} onClose={() => setIsPopupCenter(false)} mode='center'>
             <View className='popup-box'>从中间弹出</View>
           </Popup>
-          <Popup show={isPopupBottom} bottomHeight={800} onClose={() => setIsPopupBottom(false)} mode='bottom' hideClose>
+          <Popup
+            show={isPopupBottom}
+            bottomHeight={800}
+            onClose={() => setIsPopupBottom(false)}
+            mode='bottom'
+            hideClose
+          >
             <View className='p-20 text-center'>从底部弹出</View>
           </Popup>
         </View>

@@ -3,8 +3,8 @@ module.exports = {
     NODE_ENV: '"production"'
   },
   defineConstants: {
-    API_ROOT:'"/"',
-    H5_ROOT:'"/"',
+    API_ROOT: '"/"',
+    H5_ROOT: '"/"',
   },
   mini: {},
   h5: {

@@ -1,0 +1,139 @@
+.popup {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  top: 0;
+  z-index: 999999;
+  transition: visibility .6s ease-out, opacity .6s ease-out;
+
+  .popup-wrapper {
+    z-index: 90;
+  }
+
+  .popup-mask {
+    z-index: 10;
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+
+  .popup-icon-close {
+    position: absolute;
+    top: 18px;
+    right: 24px;
+    font-size: 70px;
+    color: #fff;
+    z-index: 99;
+  }
+
+  &.bottom {
+    .popup-wrapper {
+      box-shadow: 0px -4px 8px 0px rgba(237, 237, 237, 0.5);
+      background: #fff;
+      border-radius: 36px 36px 0 0;
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      /* ios 11 */
+      padding-bottom: calc(0 + constant(safe-area-inset-bottom));
+      /* ios 11.2及以后 */
+      padding-bottom: calc(0 + env(safe-area-inset-bottom));
+    }
+  }
+
+  &.center {
+    .popup-wrapper {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+    }
+  }
+
+  &-show {
+    visibility:visible;
+    opacity:1;
+
+    .popup-mask {
+      animation: opacityShow 0.3s ease-out both;
+    }
+
+    &.center {
+      .popup-wrapper {
+        animation: opacityShow 0.3s ease-out both;
+      }
+    }
+
+    &.bottom {
+      .popup-wrapper {
+        animation: bottomContentUp 0.3s ease-out both;
+      }
+    }
+  }
+
+  &-hide {
+    visibility: hidden;
+    opacity: 0;
+
+    .popup-mask {
+      animation: opacityHide 0.3s ease-out both;
+    }
+
+    &.center {
+      .popup-wrapper {
+        animation: opacityHide 0.3s ease-out both;
+      }
+    }
+
+    &.bottom {
+      .popup-wrapper {
+        animation: bottomContentDown 0.6s ease-out both;
+      }
+    }
+  }
+}
+
+@keyframes opacityShow {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes opacityHide {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes bottomContentUp {
+  from {
+    height: 0;
+  }
+
+  to {
+    height: calc(var(--popup-bottom-height) * 1px);
+  }
+}
+
+@keyframes bottomContentDown {
+  from {
+    height: calc(var(--popup-bottom-height) * 1px);
+  }
+
+  to {
+    height: 0;
+  }
+}

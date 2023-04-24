@@ -1,0 +1,35 @@
+.basepage {
+
+  &.area-bottom {
+    padding-bottom: 224px;
+  }
+
+  .custom-navigation {
+    height: 92px;
+    width: 100%;
+    position: sticky;
+    top: 0;
+    left: 0;
+    z-index: 999999;
+    background: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .custom-navigation-icon {
+      position: absolute;
+      top: 50%;
+      left: 56px;
+      transform: translateY(-50%);
+      font-size: 30px;
+      font-weight: bold;
+      color: #333;
+    }
+
+    .custom-navigation-title {
+      font-size: 32px;
+      font-weight: bold;
+      color: #333;
+    }
+  }
+}

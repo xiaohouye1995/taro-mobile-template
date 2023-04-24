@@ -1,0 +1,17 @@
+.example_page {
+    .rectangular-demo {
+        width: 100px;
+        height: 100px;
+        text-align: center;
+        line-height: 100px;
+        background: #ccc;
+    }
+    .popup-box {
+        width: 400px;
+        height: 400px;
+        background: #fff;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}

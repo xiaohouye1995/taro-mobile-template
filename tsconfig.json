@@ -1,0 +1,34 @@
+{
+  "compilerOptions": {
+    "target": "es2017", // 指定 ECMAScript 目标版本: 'ES3', 'ES5', 'ES2015', 'ES2016', 'ES2017', or 'ESNEXT'
+    "module": "commonjs", // 指定使用模块: 'commonjs', 'amd', 'system', 'umd' or 'es2015'
+    "removeComments": false, // 编译的时候删除注释
+    "preserveConstEnums": true, // 是否禁止删除枚举常量生成代码中的声明。
+    "moduleResolution": "node", // 用于选择模块解析策略，有'node'和'classic'两种类型
+    "experimentalDecorators": true, // 用于指定是否启用实验性的装饰器特性
+    "noImplicitAny": false, // 不允许变量或函数参数具有隐式any类型
+    "allowSyntheticDefaultImports": true, // 用来指定允许从没有默认导出的模块中默认导入 
+    "outDir": "lib", // 编译后的文件存到到哪个目录下,默认是每一个ts文件的当前目录,下面的配置就是把ts编译到lib目录下
+    "noUnusedLocals": true, // 默认false,是否检测定义了但是没使用的变量
+    "noUnusedParameters": true, // 用于检查是否有在函数体中没有使用的参数
+    "strictNullChecks": true, // null类型检测,const teacher: string = null;会报错
+    "sourceMap": true, // 用来指定编译时是否生成.map文件
+    "baseUrl": ".", // 用于设置解析非相对模块名称的基本目录，相对模块不会受到baseUrl的影响
+    "rootDir": ".", // 指定输出文件目录(用于输出)，用于控制输出目录结构
+    "jsx": "react-jsx", // 指定 jsx 代码的生成: 'preserve', 'react-native', or 'react-jsx'
+    "allowJs": true, // 允许编译JS
+    "resolveJsonModule": true, // 是否解析 JSON 模块
+    "typeRoots": [
+      "node_modules/@types"
+    ], // 用来指定声明文件或文件夹的路径列表，如果指定了此项，则只有在这里列出的声明文件才会被加载
+    "paths": {
+      "@/*":["./src/*"]
+    }
+  },
+  // 指定需要编译文件 否则默认当前目录下除了exclude之外的所有.ts, .d.ts,.tsx 文件
+  "include": [
+    "./src",
+    "./types"
+  ],
+  "compileOnSave": false // compileOnSave的值是true或false，如果设为true，在我们编辑了项目中的文件保存的时候，编辑器会根据tsconfig.json中的配置重新生成文件，不过这个要编辑器支持
+}

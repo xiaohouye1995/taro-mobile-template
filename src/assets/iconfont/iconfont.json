@@ -1,0 +1,51 @@
+{
+  "id": "3939404",
+  "name": "taro-mobile-template",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "基于taro的移动多端项目模板，适用于h5、小程序（微信、支付宝、钉钉、抖音）",
+  "glyphs": [
+    {
+      "icon_id": "429241",
+      "name": "错号",
+      "font_class": "error-1",
+      "unicode": "e60f",
+      "unicode_decimal": 58895
+    },
+    {
+      "icon_id": "429212",
+      "name": "搜索",
+      "font_class": "search",
+      "unicode": "e60e",
+      "unicode_decimal": 58894
+    },
+    {
+      "icon_id": "430539",
+      "name": "左箭头",
+      "font_class": "arrow-left",
+      "unicode": "e645",
+      "unicode_decimal": 58949
+    },
+    {
+      "icon_id": "430540",
+      "name": "右箭头",
+      "font_class": "arrow-right",
+      "unicode": "e646",
+      "unicode_decimal": 58950
+    },
+    {
+      "icon_id": "430545",
+      "name": "上箭头",
+      "font_class": "arrow-up",
+      "unicode": "e647",
+      "unicode_decimal": 58951
+    },
+    {
+      "icon_id": "430546",
+      "name": "下箭头",
+      "font_class": "arrow-down",
+      "unicode": "e648",
+      "unicode_decimal": 58952
+    }
+  ]
+}

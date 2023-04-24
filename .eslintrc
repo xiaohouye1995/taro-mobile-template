@@ -1,0 +1,11 @@
+{
+  "extends": ["taro/react", "prettier"],
+  "plugins": [
+    "prettier"
+  ],
+  "rules": {
+    "eqeqeq": 2, // 必须全等
+    "react/jsx-uses-react": "off",
+    "react/react-in-jsx-scope": "off"
+  }
+}

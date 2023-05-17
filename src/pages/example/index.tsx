@@ -5,6 +5,7 @@ import BasePage from '@/components/BasePage'
 import Loading from '@/components/Loading'
 import Popup from '@/components/Popup'
 import { Accordion, AccordionItem } from '@/components/Accordion'
+import CustomModal from '@/components/CustomModal'
 import './index.scss'
 
 interface IPageProps extends IProps {
@@ -141,6 +142,24 @@ const Example: React.FC = () => {
                 onClick={() => setIsPopupBottom(true)}
               >
                 从底部弹出
+              </Button>
+            </View>
+          </RenderCell>
+          <RenderCell title='自定义api调用弹窗'>
+            <View className='flex'>
+              <Button
+                className='button button-primary'
+                onClick={() => {
+                  CustomModal.show({
+                    title: '安全提醒',
+                    content: '您的账号已在别处登录，确定要登录吗？',
+                    onConfirm: () => {
+                      console.log('点击成功')
+                    }
+                  })
+                }}
+              >
+                弹出
               </Button>
             </View>
           </RenderCell>

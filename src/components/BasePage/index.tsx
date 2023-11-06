@@ -1,3 +1,6 @@
+/**
+ * @desc 基础页面组件
+ */
 import React from 'react'
 import Taro from '@tarojs/taro'
 import { View } from '@tarojs/components'
@@ -33,10 +36,19 @@ const BasePage: React.FC<IPageProps> = (props: IPageProps) => {
   const useCustomNav = useSelector((state: RootState) => state.global.useCustomNav)
 
   return (
-    <View className={['basepage', process.env.TARO_ENV === 'h5' && isTabPage && 'area-bottom'].join(' ')}>
+    <View
+      className={['basepage', process.env.TARO_ENV === 'h5' && isTabPage && 'area-bottom'].join(
+        ' '
+      )}
+    >
       {useCustomNav && (
         <View className={`custom-navigation ${NavClassName}`}>
-          {!isTabPage && <View onClick={() => Taro.navigateBack()} className='iconfont icon-arrow-left custom-navigation-icon' />}
+          {!isTabPage && (
+            <View
+              onClick={() => Taro.navigateBack()}
+              className='iconfont icon-arrow-left custom-navigation-icon'
+            />
+          )}
           <View className='custom-navigation-title'>{pageTitle}</View>
         </View>
       )}

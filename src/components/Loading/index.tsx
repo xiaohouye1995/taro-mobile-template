@@ -1,3 +1,6 @@
+/**
+ * @desc 加载组件
+ */
 import React from 'react'
 import { View } from '@tarojs/components'
 import './index.scss'
@@ -20,9 +23,7 @@ const Loading: React.FC<IPageProps> = (props: IPageProps) => {
   const { className, title } = props
 
   return (
-    <View
-      className={`loading ${className}`}
-    >
+    <View className={`loading ${className}`}>
       <View className='loading-icon'></View>
       {title && <View className='loading-title'>{title}</View>}
     </View>

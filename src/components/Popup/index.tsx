@@ -1,5 +1,4 @@
 /**
- * @author 周俊阳
  * @desc 弹出层组件
  */
 import React, { useEffect } from 'react'
@@ -53,7 +52,7 @@ const Popup: React.FC<IPopupProps> = (props: IPopupProps) => {
     bottomHeight,
     hideClose = false,
     maskClosable = true,
-    onClose,
+    onClose
   } = props
 
   const handlePopupClose = () => {
@@ -72,24 +71,13 @@ const Popup: React.FC<IPopupProps> = (props: IPopupProps) => {
 
   return (
     <View
-      className={[
-        'popup',
-        show ? 'popup-show' : 'popup-hide',
-        mode,
-        className,
-      ].join(' ')}
+      className={['popup', show ? 'popup-show' : 'popup-hide', mode, className].join(' ')}
       style={popupbottomheight}
     >
-      <View
-        className='popup-mask'
-        onClick={() => maskClosable && handlePopupClose()}
-      ></View>
+      <View className='popup-mask' onClick={() => maskClosable && handlePopupClose()}></View>
       <View className='popup-wrapper'>{props.children}</View>
       {!hideClose && (
-        <View
-          className='iconfont icon-error-1 popup-icon-close'
-          onClick={handlePopupClose}
-        ></View>
+        <View className='iconfont icon-error-1 popup-icon-close' onClick={handlePopupClose}></View>
       )}
     </View>
   )

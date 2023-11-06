@@ -6,6 +6,8 @@ import Loading from '@/components/Loading'
 import Popup from '@/components/Popup'
 import { Accordion, AccordionItem } from '@/components/Accordion'
 import CustomModal from '@/components/CustomModal'
+import FloatingBall from '@/components/FloatingBall'
+import icon_solve from '@/assets/common/solve.png'
 import './index.scss'
 
 interface IPageProps extends IProps {
@@ -181,6 +183,7 @@ const Example: React.FC = () => {
               })}
             </Accordion>
           </RenderCell>
+          <FloatingBall top={100} right={10} img={icon_solve}></FloatingBall>
           <Popup show={isPopupCenter} onClose={() => setIsPopupCenter(false)} mode='center'>
             <View className='popup-box'>从中间弹出</View>
           </Popup>

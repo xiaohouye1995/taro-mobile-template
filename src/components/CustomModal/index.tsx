@@ -1,3 +1,6 @@
+/**
+ * @desc API调用弹窗
+ */
 import React from 'react'
 import ReactDOM from 'react-dom'
 import { View } from '@tarojs/components'
@@ -53,7 +56,7 @@ function Wrapper(Component: React.FC<MyProps>) {
   }
 
   return {
-    show,
+    show
   }
 }
 

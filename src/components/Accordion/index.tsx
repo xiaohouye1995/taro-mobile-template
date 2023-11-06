@@ -1,3 +1,6 @@
+/**
+ * @desc 手风琴折叠组件
+ */
 import React, { useState } from 'react'
 import type { SyntheticEvent } from 'react'
 import { View, Image } from '@tarojs/components'
@@ -24,12 +27,23 @@ export const AccordionItem: React.FC<IAccordionItemType> = (props: IAccordionIte
   const { label, icon, isCollapsed, className, labelClassName, handleClick } = props
   return (
     <View className={`accordionItemContainer ${className}`}>
-      <View className={`accordionItemContainer_hd ${!isCollapsed && 'collapsed'}`} onClick={(e: any) => handleClick && handleClick(e)}>
+      <View
+        className={`accordionItemContainer_hd ${!isCollapsed && 'collapsed'}`}
+        onClick={(e: any) => handleClick && handleClick(e)}
+      >
         {icon && <Image className='accordionItemContainer_icon' src={icon} />}
         <View className={`accordionItemContainer_label ${labelClassName}`}>{label}</View>
-        <View className={['iconfont icon-arrow-up accordionItemContainer_arrow', isCollapsed && 'accordionItemContainer_arrow_up'].join(' ')}></View>
+        <View
+          className={[
+            'iconfont icon-arrow-up accordionItemContainer_arrow',
+            isCollapsed && 'accordionItemContainer_arrow_up'
+          ].join(' ')}
+        ></View>
       </View>
-      <View aria-expanded={isCollapsed} className={`accordionItemContent ${isCollapsed ? ' collapsed' : ' expanded'}`}>
+      <View
+        aria-expanded={isCollapsed}
+        className={`accordionItemContent ${isCollapsed ? ' collapsed' : ' expanded'}`}
+      >
         {props.children}
       </View>
     </View>
